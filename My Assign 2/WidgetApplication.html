@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Widgets App</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="jumbotron">
+   <h1>Web Engineering Assignment 2</h1> 
+    <p>Widgets application that show clock, calendar and weather widgets</p>  
+  </div>
+  </div>
+
+<div class="container-fluid">
+<div class="content row">
+    <div id="clock" class="mini-clock col-lg-4 vcenter-small">
+    </div>
+    <div class="imini-calendar col-lg-3 vcenter-small" id="mini-calendar">
+    </div>
+    <div class="mini-weather col-lg-4 vcenter-small" id="mini-weather">
+    </div>
+    <div id="calendar" class="calendar" style="display: none;">
+	<script type="text/javascript">
+		
+function calendar()
+{
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth();
+        var year = date.getYear();
+        if(year<=200)
+        {
+                year += 1900;
+        }
+        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+        days_in_month = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        if(year%4 == 0 && year!=1900)
+        {
+                days_in_month[1]=29;
+        }
+        total = days_in_month[month];
+        var date_today = day+' '+months[month]+' '+year;
+        beg_j = date;
+        beg_j.setDate(1);
+        if(beg_j.getDate()==2)
+        {
+                beg_j=setDate(0);
+        }
+        beg_j = beg_j.getDay();
+        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),20);"><tbody id="cal_body"><tr><th colspan="7">'+date_today+'</th></tr>');
+        document.write('<tr class="cal_d_weeks"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>');
+        week = 0;
+        for(i=1;i<=beg_j;i++)
+        {
+                document.write('<td class="cal_days_bef_aft">'+(days_in_month[month-1]-beg_j+i)+'</td>');
+                week++;
+        }
+        for(i=1;i<=total;i++)
+        {
+                if(week==0)
+                {
+                        document.write('<tr>');
+                }
+                if(day==i)
+                {
+                        document.write('<td class="cal_today">'+i+'</td>');
+                }
+                else
+                {
+                        document.write('<td>'+i+'</td>');
+                }
+                week++;
+                if(week==7)
+                {
+                        document.write('</tr>');
+                        week=0;
+                }
+        }
+        for(i=1;week!=0;i++)
+        {
+                document.write('<td class="cal_days_bef_aft">'+i+'</td>');
+                week++;
+                if(week==7)
+                {
+                        document.write('</tr>');
+                        week=0;
+                }
+        }
+        document.write('</tbody></table>');
+        opacity(document.getElementById('cal_body'),70);
+        return true;
+}
+	</script>	
+    </div> 
+</div>
+
+<h1 style="text-align: center; color: white"> Yousaf Iqbal : Registration # 04730 : Section SE-4A</h1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+<script src="javascript.js"></script>
+</body>
+</html>

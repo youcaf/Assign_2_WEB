@@ -1,0 +1,10 @@
+Assignment Number 2 Dashboard 
+
+I used jquery, css3 , html5 and javascript for this assignment.
+There are three divs on the dashboard, click on any of cards to view a zoomed widget with animations. Again click on div goes back to main 3 widgets.
+
+GitHubLINK:  https://github.com/youcaf/Assign_2_WEB
+
+YOUSAF IQBAL
+BESE-4A
+04730
